@@ -1,7 +1,14 @@
+body {
+    background-color: #171717;
+    color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .options {
@@ -11,16 +18,35 @@
 .option {
     width: 200px;
     height: 100px;
-    background-color: lightgray;
+    background-color: #0016c1;
     margin: 10px;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    /* Add transition for smooth animation */
+}
+
+.option:hover {
+    background-color: #ff007b;
+    color: #000;
+    transform: scale(1.05);
+    /* Grow the box slightly on hover */
 }
 
 .rankings {
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid #0016c1;
     width: 400px;
     height: 200px;
     overflow-y: auto;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+}
+
+.rankings h2 {
+    color: #0016c1;
 }
