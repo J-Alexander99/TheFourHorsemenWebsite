@@ -15,6 +15,14 @@ function chooseOption(index) {
         swapped = true;
     }
 
+    // Apply clicked animation
+    option1Element.classList.add("clicked");
+    option2Element.classList.add("clicked");
+    setTimeout(() => {
+        option1Element.classList.remove("clicked");
+        option2Element.classList.remove("clicked");
+    }, 200); // Remove clicked class after 0.2s
+
     currentIndex++;
 
     if (currentIndex >= options.length - 1) {

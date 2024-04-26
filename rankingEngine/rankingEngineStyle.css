@@ -36,6 +36,28 @@ body {
     /* Grow the box slightly on hover */
 }
 
+.clicked {
+    animation-name: clickAnimation;
+    animation-duration: 0.2s;
+}
+
+@keyframes clickAnimation {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    /* Fade out */
+    100% {
+        opacity: 1;
+    }
+
+    /* Fade in */
+}
+
 .rankings {
     margin-top: 20px;
     padding: 10px;
