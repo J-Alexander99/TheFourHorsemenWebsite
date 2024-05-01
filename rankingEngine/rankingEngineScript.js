@@ -1,4 +1,4 @@
-let options = ["Option A", "Option B", "Option C", "Option D"]; // Example options
+let options = ["Coke", "Fanta", "Red Bull", "Monster", "Water", "Tea", "Coffee"]; // Example options
 let rankings = [];
 
 let currentIndex = 0;
