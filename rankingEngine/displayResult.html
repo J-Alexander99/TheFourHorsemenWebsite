@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+
+</body>
+
+<script>
+    // Function to fetch JSON data from a given file path
+    async function fetchJsonFile(jsonFilePath) {
+        try {
+            const response = await fetch(jsonFilePath);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const data = await response.json();
+            return data;
+        } catch (error) {
+            console.error("Unable to fetch data:", error);
+            return null;
+        }
+    }
+
+    // Function to calculate points based on the words array
+    function calculatePoints(wordsArray) {
+        let points = {};
+        if (Array.isArray(wordsArray)) {
+            wordsArray.forEach((word, index) => {
+                if (!points[word]) {
+                    points[word] = 0;
+                }
+                points[word] += (12 - index);
+            });
+        }
+        return points;
+    }
+
+    // Function to fetch the list of JSON files from a given folder
+    async function fetchFileList(folderPath) {
+        try {
+            const response = await fetch(`${folderPath}/fileList.json`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const fileList = await response.json();
+            return fileList;
+        } catch (error) {
+            console.error("Unable to fetch file list:", error);
+            return [];
+        }
+    }
+
+    // Function to calculate average points from multiple point objects
+    function calculateAveragePoints(pointsList) {
+        let totalPoints = {};
+        let totalFiles = pointsList.length;
+
+        pointsList.forEach(points => {
+            for (const word in points) {
+                if (!totalPoints[word]) {
+                    totalPoints[word] = 0;
+                }
+                totalPoints[word] += points[word];
+            }
+        });
+
+        for (const word in totalPoints) {
+            totalPoints[word] /= totalFiles;
+        }
+
+        return totalPoints;
+    }
+
+    // Main function to fetch data, calculate points, and print average points
+    async function main() {
+        const folderPath = "rankedTopics"; // Corrected to a relative path
+        const fileList = await fetchFileList(folderPath);
+
+        let pointsList = [];
+
+        for (const fileName of fileList) {
+            const jsonFilePath = `${folderPath}/${fileName}`; // Corrected path concatenation
+            const jsonData = await fetchJsonFile(jsonFilePath);
+            if (jsonData) {
+                const wordsArray = jsonData.words;
+                const points = calculatePoints(wordsArray);
+                pointsList.push(points);
+            }
+        }
+
+        if (pointsList.length > 0) {
+            const averagePoints = calculateAveragePoints(pointsList);
+
+            // Convert average points to array and sort by points value descending
+            const sortedPointsArray = Object.entries(averagePoints).sort((a, b) => b[1] - a[1]);
+
+            // Print the sorted points
+            console.log("Average Points in Order:");
+            sortedPointsArray.forEach(([word, points]) => {
+                console.log(`${word}: ${points}`);
+            });
+        } else {
+            console.error("No valid data found in any files");
+        }
+    }
+
+    // Run the main function
+    main();
+</script>
+
+</html>
