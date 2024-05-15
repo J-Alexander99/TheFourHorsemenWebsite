@@ -52,3 +52,25 @@ function displayRankings() {
 // Initial display of options
 option1Element.textContent = options[currentIndex];
 option2Element.textContent = options[currentIndex + 1];
+
+
+function drinks() {
+    //
+    options = ["Coke", "Fanta", "Red Bull", "Monster", "Water", "Tea", "Coffee"]; // Example options
+
+}
+
+function maps() {
+    //
+    options = ["1", "2", "3", "4", "5", "6", "7"]; // Example options
+
+}
+
+
+function cdl_Teams() {
+    //
+    options = ["FaZe", "Optic", "Ultra", "Subliners", "Boston", "Thieves", "LAG", "Surge", "Ravens", "Miami", "Rokkr", "Vegas"]; // Example options
+
+}
+
+

@@ -81,58 +81,6 @@
             justify-content: space-around;
             margin-top: 50px;
         }
-
-        .box {
-            position: relative;
-            width: calc(33.33% - 20px);
-            /* 33.33% width with some spacing */
-            margin: 10px;
-            /* Spacing between boxes */
-            height: 200px;
-            background: linear-gradient(145deg, #8e44ad, #3498db);
-            /* Purple to Blue */
-            color: #fff;
-            text-align: center;
-            line-height: 200px;
-            font-size: 24px;
-            border-radius: 20px;
-            cursor: pointer;
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease-in-out;
-            overflow: hidden;
-            /* Hide overflow content (the image) */
-        }
-
-        .box:hover {
-            transform: scale(1.1);
-        }
-
-        /* CSS styles for box hover content (image) */
-        .box-hover-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            /* Semi-transparent background */
-            display: none;
-            /* Hide by default */
-        }
-
-        /* CSS styles for box hover effect */
-        .box:hover .box-hover-content {
-            display: block;
-            /* Show on hover */
-        }
-
-        /* CSS styles for box hover content image */
-        .box-hover-content img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            /* Ensure image is contained within the area */
-        }
     </style>
 </head>
 
@@ -150,23 +98,11 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <div class="options">
-            <div id="option1" class="option" onclick="chooseOption(0)"></div>
-            <div id="option2" class="option" onclick="chooseOption(1)"></div>
-        </div>
-        <div class="rankings" id="rankings"></div>
-    </div>
-    <br>
-    <br>
-    <button type="button" onclick="drinks()">Drinks</button>
 
-    <button type="button" onclick="maps()">Maps</button>
+    <button type="button" onclick="alert('Hello world!')">Click Me!</button>
 
-    <button type="button" onclick="cdl_Teams()">CDL Teams</button>
+    <button type="button" onclick="alert('Hello world!')">Click Me!</button>
 
+    <button type="button" onclick="alert('Hello world!')">Click Me!</button>
 
-    <script src="rankingEngineScript.js"></script>
 </body>
-
-</html>
